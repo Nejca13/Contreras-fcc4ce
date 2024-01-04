@@ -1,0 +1,25 @@
+# Node.js (backend)
+backend/node_modules/
+backend/dist/
+backend/.env
+
+# React (frontend)
+frontend/node_modules/
+frontend/build/
+frontend/public/
+
+# PostgreSQL
+*.sql
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs and runtime data
+logs/
+*.log
+npm-debug.log*
+
+# Dependency directories
+jspm_packages/
+bower_components/

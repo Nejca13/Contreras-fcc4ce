@@ -18,14 +18,12 @@ pnpm install
 
 # Levantar el backend
 echo "Iniciando el backend..."
-pnpm run start &
+pnpm run start:dev &
 
 # Instalar dependencias en el frontend
 echo "Instalando dependencias del frontend..."
 cd "${FRONTEND_DIR}" || exit
 pnpm install
-
-
 
 # Levantar el frontend
 echo "Iniciando el frontend..."

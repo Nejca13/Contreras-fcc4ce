@@ -16,6 +16,10 @@ export class NoteService {
     return await this.noteRepository.find();
   }
 
+  async getNotesByTag(tag: string): Promise<Note[]> {
+    return await this.noteRepository.find({ where: { tag } });
+  }
+
   async createNote(note: Note): Promise<Note> {
     return await this.noteRepository.save(note);
   }

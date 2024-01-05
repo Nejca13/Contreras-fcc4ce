@@ -1,5 +1,3 @@
-// note.controller.ts
-
 import {
   Controller,
   Get,
@@ -19,6 +17,11 @@ export class NoteController {
   @Get()
   async getAllNotes(): Promise<Note[]> {
     return await this.noteService.getAllNotes();
+  }
+
+  @Get('filter/:tag') // Nueva ruta para filtrar por etiqueta
+  async getNotesByTag(@Param('tag') tag: string): Promise<Note[]> {
+    return await this.noteService.getNotesByTag(tag);
   }
 
   @Post('create')

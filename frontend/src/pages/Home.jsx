@@ -5,12 +5,13 @@ import { getAllNotes } from '../functions/getAllNotes'
 
 const Home = () => {
   const [notes, setNotes] = useState([])
+  const [priority, setPriority] = useState('all')
   const [errorMessage, setErrorMessage] = useState('No notes to display')
   const [listMode, setListMode] = useState(true)
 
   useEffect(() => {
-    getAllNotes({ setNotes, setErrorMessage })
-  }, [])
+    getAllNotes({ setNotes, setErrorMessage, priority })
+  }, [priority])
 
   let unarchivedNotes = notes.filter((note) => note.archived === false)
   let archivedNotes = notes.filter((note) => note.archived === true)
@@ -53,6 +54,29 @@ const Home = () => {
           </button>
         )}
       </div>
+      <nav
+        style={{
+          position: 'absolute',
+          top: '10px',
+          right: '20px',
+          display: 'flex',
+          gap: '20px',
+          alignItems: 'center',
+        }}
+      >
+        <p>Filter: </p>
+        <select
+          name='priority'
+          id='priority'
+          defaultValue={'all'}
+          onChange={(e) => setPriority(e.target.value)}
+        >
+          <option value='all'>All</option>
+          <option value='low'>Low priority</option>
+          <option value='medium'>Medium priority</option>
+          <option value='higth'>High priority</option>
+        </select>
+      </nav>
       {listMode === true ? (
         notes.length > 0 ? (
           <NoteList

@@ -2,6 +2,8 @@
 
 This project is a technical test for the company Ensolvers. The application is a basic TODO with a backend built in NestJS, a PostgreSQL database, and the frontend developed with Vite and React.
 
+![App image](https://i.ibb.co/wpd97tJ/Screenshot-2024-01-05-19-29-46-2646x768.png)
+
 ## Quick Start
 
 1. **Installation:**

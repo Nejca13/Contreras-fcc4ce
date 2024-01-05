@@ -20,24 +20,24 @@ DB_NAME="notes"
 psql -U postgres -c "CREATE DATABASE $DB_NAME;"
 psql -U postgres -c "CREATE USER $DB_USERNAME WITH PASSWORD '$DB_PASSWORD';"
 psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE $DB_NAME TO $DB_USERNAME;"
+psql -U postgres -c "ALTER USER $DB_USERNAME WITH SUPERUSER;"
 
 # Instalar dependencias en el backend
 echo "Instalando dependencias del backend..."
 cd "${BACKEND_DIR}" || exit
-pnpm install
+npm install
 
 # Levantar el backend
 echo "Iniciando el backend..."
-pnpm run start:dev &
+npm run start:dev &
 
 sleep 5
 
 # Instalar dependencias en el frontend
 echo "Instalando dependencias del frontend..."
 cd "${FRONTEND_DIR}" || exit
-pnpm install
+npm install
 
 # Levantar el frontend
 echo "Iniciando el frontend..."
-pnpm run dev
-
+npm run dev

@@ -10,7 +10,7 @@ This project is a technical test for the company Ensolvers. The application is a
     
 
     ```bash
-    pnpm run dev
+    npm run dev
     ```
 
     This will install dependencies, configure the database, and run both the backend and frontend.

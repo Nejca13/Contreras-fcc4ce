@@ -1,5 +1,4 @@
-// note.entity.ts
-
+// Importa las dependencias de TypeORM para definir la entidad.
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -8,6 +7,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+// Define la entidad 'Note' con sus propiedades y decoradores correspondientes.
 @Entity()
 export class Note {
   @PrimaryGeneratedColumn()

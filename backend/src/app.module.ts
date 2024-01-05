@@ -1,5 +1,3 @@
-// app.module.ts
-
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Note } from './note/note.entity';
@@ -10,10 +8,6 @@ import ormconfig from '../ormconfig';
 @Module({
   controllers: [NoteController],
   providers: [NoteService],
-  imports: [
-    TypeOrmModule.forRoot(ormconfig),
-    TypeOrmModule.forFeature([Note]),
-    // ...otros módulos
-  ],
+  imports: [TypeOrmModule.forRoot(ormconfig), TypeOrmModule.forFeature([Note])],
 })
 export class AppModule {}

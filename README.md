@@ -7,6 +7,7 @@ This project is a technical test for the company Ensolvers. The application is a
 1. **Installation:**
     - Ensure that PostgreSQL is installed on your system.
     - Run the following script to start the project:
+    
 
     ```bash
     pnpm run dev

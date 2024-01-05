@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { deleteNote } from '../functions/deleteNote'
 import { updateNotes } from '../functions/updateNotes'
 
-const Note = ({ notes, refreshList }) => {
+const Note = ({ notes, refreshList, listMode }) => {
   const [editMode, setEditMode] = useState(false)
+  const [dialogStatus, setDialogStatus] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -110,7 +111,41 @@ const Note = ({ notes, refreshList }) => {
           Delete
         </button>
         <button onClick={() => setEditMode(true)}>Edit</button>
+        <button
+          onClick={() => {
+            notes.archived = !notes.archived
+            setDialogStatus(true)
+            console.log(notes)
+          }}
+          style={{ float: 'right' }}
+        >
+          {listMode === true ? 'Archive' : 'Unarchive'}
+        </button>
       </div>
+      <dialog
+        open={dialogStatus}
+        style={{
+          width: '400px',
+          height: '200px',
+          border: '1px solid yellow',
+        }}
+      >
+        <div style={{ textAlign: 'center' }}>
+          <h3>Seguro que quiere archivar esta nota?</h3>
+          <button
+            onClick={() => {
+              updateNotes(notes.id, notes)
+              setDialogStatus(false)
+              setTimeout(() => {
+                refreshList()
+              }, 400)
+            }}
+          >
+            Confirm
+          </button>
+          <button onClick={() => setDialogStatus(false)}>Close</button>
+        </div>
+      </dialog>
     </div>
   )
 }

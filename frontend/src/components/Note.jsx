@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { deleteNote } from '../functions/deleteNote'
 import { updateNotes } from '../functions/updateNotes'
+import styles from './Note.module.css'
 
 const Note = ({ notes, refreshList, listMode }) => {
   const [editMode, setEditMode] = useState(false)
@@ -85,16 +86,16 @@ const Note = ({ notes, refreshList, listMode }) => {
       </form>
     </div>
   ) : (
-    <div
-      key={notes.id}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        borderBottom: '2px solid #161F27',
-      }}
-    >
-      <li>
-        <strong>Title:</strong> {notes.title}
+    <div key={notes.id} className={styles.note}>
+      <li className={styles[notes.tag]}>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <p>
+            <strong>Title:</strong> {notes.title}
+          </p>
+          <p>
+            <strong>Priority: </strong> {notes.tag}
+          </p>
+        </div>
         <p>
           <strong>Content:</strong> {notes.content}
         </p>
@@ -126,7 +127,7 @@ const Note = ({ notes, refreshList, listMode }) => {
         open={dialogStatus}
         style={{
           width: '400px',
-          height: '200px',
+          height: '130px',
           border: '1px solid yellow',
         }}
       >

@@ -1,0 +1,18 @@
+.note{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #161F27;
+    
+  }
+
+  .low{
+    color: rgb(87, 163, 87);
+  }
+  .medium{
+    color: rgb(223, 223, 130);
+  }
+  .higth{
+    color: rgb(233, 123, 123);
+  }
+  
+

@@ -10,8 +10,8 @@ export const getAllNotes = ({setErrorMessage, setNotes, priority}) => {
     case 'medium':
       API_URL = 'http://www.localhost:3000/notes/filter/medium';
       break;
-    case 'high':
-      API_URL = 'http://www.localhost:3000/notes/filter/high';
+    case 'higth':
+      API_URL = 'http://www.localhost:3000/notes/filter/higth';
       break;
     default:
       API_URL = 'http://www.localhost:3000/notes';

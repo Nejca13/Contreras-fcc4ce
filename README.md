@@ -7,7 +7,7 @@ Este proyecto es una prueba técnica para la empresa Ensolvers. La aplicación e
 1. Ejecuta el script de inicio:
 
     ```bash
-    sh start.sh
+    pnpm run dev
     ```
 
     Esto instalará las dependencias, configurará la base de datos, y ejecutará tanto el backend como el frontend.
